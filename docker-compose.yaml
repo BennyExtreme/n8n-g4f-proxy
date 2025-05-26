@@ -1,0 +1,17 @@
+services:
+  g4f:
+    image: hlohaus789/g4f:latest
+    shm_size: 2g
+    volumes:
+      - ./har_and_cookies:/app/har_and_cookies
+      - ./generated_media:/app/generated_media
+
+  llm-proxy:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - "11434:3000"
+    environment:
+      - LLM_PROXY_PROVIDER=OpenaiChat
+      - LLM_UPSTREAM=http://g4f:1337
