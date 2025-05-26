@@ -7,7 +7,7 @@ import { Readable } from 'stream';
 export class AppService {
   constructor(private readonly http: HttpService) {}
 
-  async getModels(headers: any): Promise<any[]> {
+  async getModels(headers: any): Promise<any> {
     const auth: string | null = headers['authorization'];
 
     const upstream = process.env.LLM_UPSTREAM;
@@ -26,14 +26,17 @@ export class AppService {
       );
     });
 
-    return filteredModels.map((model: any) => ({
-      id: model.name,
-      object: "model",
-      created: 0,
-      owned_by: null,
-      image: model.image || false,
-      provider: true
-    }));
+    return {
+      "object": "list",
+      "data": filteredModels.map((model: any) => ({
+        id: model.name,
+        object: "model",
+        created: 0,
+        owned_by: "",
+        image: model.image || false,
+        provider: true
+      }))
+    };
   }
 
   async getProviders(): Promise<string> {
