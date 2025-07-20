@@ -17,7 +17,7 @@ done
 echo "Using LXC ID: $LXC_ID"
 
 LXC_NAME="llm-proxy-stack"
-LXC_PASSWORD="root"  # Password for the root account, useful to log-in with SFTP to upload files (such as cookies or .har)
+LXC_PASSWORD="R00t123!"  # Password for the root account, useful to log-in with SFTP to upload files (such as cookies or .har)
 LXC_MEMORY=4096
 LXC_CORES=4
 LXC_DISK_SIZE=20
