@@ -70,7 +70,7 @@ pip3 install -U g4f[all]
 
 echo "Cloning the n8n-g4f-proxy project..."
 cd /opt
-git clone https://github.com/korotovsky/n8n-g4f-proxy.git llm-proxy
+git clone https://github.com/BennyExtreme/n8n-g4f-proxy.git llm-proxy
 
 cd /opt/llm-proxy
 
