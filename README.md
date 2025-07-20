@@ -11,7 +11,7 @@ An LLM-Proxy for [Gpt4Free](https://github.com/xtekky/gpt4free) service to expos
   Run this script in your Proxmox host shell
   
   ```bash
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/BennyExtreme/n8n-g4f-proxy/master/proxmox.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/BennyExtreme/n8n-g4f-proxy/refs/heads/master/proxmox.sh)"
   ```
 
 * Docker
