@@ -90,7 +90,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/opt/llm-proxy
-ExecStart=/bin/bash -c 'PYTHONPATH=/opt/llm-proxy python -m g4f --port 1337'
+ExecStart=/bin/bash -c 'PYTHONPATH=/opt/llm-proxy python3 -m g4f --port 1337'
 Restart=always
 RestartSec=10
 
