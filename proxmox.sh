@@ -57,12 +57,12 @@ set -e
 echo "Updating system..."
 apt update && apt upgrade -y
 
-echo "Installing Python, Node.js, and dependencies..."
-apt install -y python3 python3-pip python3-venv curl wget gnupg2 software-properties-common git ffmpeg
+echo "Installing Python, and dependencies..."
+apt install -y python3 python3-pip python3-venv curl wget gnupg2 software-properties-common git ffmpeg make bash
 
-echo "Installing Node.js 18..."
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y nodejs
+echo "Installing Nodejs..."
+curl -L https://bit.ly/n-install | bash -s -- -y
+. /root/.bashrc
 
 echo "Installing g4f..."
 pip3 install -U g4f[all]
