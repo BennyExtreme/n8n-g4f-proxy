@@ -21,22 +21,21 @@ LXC_PASSWORD="R00t123!"  # Password for the root account, useful to log-in with 
 LXC_MEMORY=4096
 LXC_CORES=4
 LXC_DISK_SIZE=20
-TEMPLATE="local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst"
 
-echo "Checking if Ubuntu 22.04 template exists..."
-if ! pveam list local | grep -q "ubuntu-22.04-standard"; then
-    echo "Ubuntu 22.04 template not found. Downloading..."
+echo "Checking if Ubuntu 26.04 template exists..."
+if ! pveam list local | grep -q "ubuntu-26.04-standard"; then
+    echo "Ubuntu 26.04 template not found. Downloading..."
     pveam update
-    pveam download local ubuntu-22.04-standard_22.04-1_amd64.tar.zst
+    pveam download local ubuntu-26.04-standard_26.04-1_amd64.tar.zst
     echo "Template downloaded successfully."
 else
-    echo "Ubuntu 22.04 template found."
+    echo "Ubuntu 26.04 template found."
 fi
 
 echo "Creating LXC container with ID: $LXC_ID"
 
 # Create LXC container
-pct create $LXC_ID $TEMPLATE \
+pct create $LXC_ID "local:vztmpl/ubuntu-26.04-standard_26.04-1_amd64.tar.zst" \
   --hostname $LXC_NAME \
   --memory $LXC_MEMORY \
   --cores $LXC_CORES \
